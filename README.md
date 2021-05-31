@@ -1,19 +1,17 @@
----
-page_type: sample
-description: "A minimal sample app that can be used to demonstrate deploying Flask apps to Azure App Service on Linux."
-languages:
-- python
-products:
-- azure
-- azure-app-service
----
 
-# Python Flask sample for Azure App Service (Linux)
+# Small Azure app to steal Fragment Parameters
 
-This is a minimal Flask app that can be deployed to Azure App Service on Linux.
+This is a minimal Flask app that can be deployed to Azure App Service on Linux which can be used to catch OAuth redirects. 
 
-For instructions on running and deploying the code, see [Quickstart: Create a Python app in Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/quickstart-python).
 
-## Contributing
+Example deploy using Azure Cli:
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+```
+az webapp up --sku F1 --name nameofthing
+```
+
+The `nameofthing` gets appended to `.azurewebsites.net` and also gives SSL and all the goodness. 
+
+To get the Tokens and codes that I am sure will be flying in, make sure to setup logging on the app service so that you can view weblogs and the service logs.
+
+The code gets printed to stdout by the application which is viewable in the logs. 
