@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        if (window.location.hash) {
+            var hash = window.location.hash.substring(1);
+            // alert(hash);
+            console.log("we found a thing");
+            $.ajax({
+                type: "GET",
+                beforeSend: function(request) {
+                    request.setRequestHeader("AzureJWT", hash);
+                },
+            });
+        } else {
+            console.log("Didnt find a hash");
+        }
+    </script>
+
+    <script> console.log("Did this work"); </script>
+
+</head>
+
+<body>
+    This is an application test page, thank you.
+</body>
